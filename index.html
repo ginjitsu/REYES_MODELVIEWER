@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyes 3D Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>NOLA.3D</h1>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#products">SHOP</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <div class="header-right">
+                <button class="cart-btn" id="cartBtn">
+                    <span>BAG</span>
+                    <span class="cart-count" id="cartCount">(0)</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products" class="products-section">
+            <div class="container">
+                <div class="products-grid">
+                    <div class="product-card" data-product="carousel">
+                        <div class="product-image">
+                            <model-viewer 
+                                src="assets/carousel.glb" 
+                                alt="Carousel 3D Model"
+                                auto-rotate
+                                camera-controls
+                                interaction-policy="allow-when-focused"
+                                loading="eager"
+                                ar
+                                ar-modes="webxr scene-viewer quick-look"
+                                ar-scale="auto"
+                                ar-placement="floor"
+                                style="width: 100%; height: 100%; background: #fafafa;"
+                            ></model-viewer>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Carousel</h3>
+                            <p class="product-price">$29.99</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product="circus">
+                        <div class="product-image">
+                            <model-viewer 
+                                src="assets/circus.glb" 
+                                alt="Circus 3D Model"
+                                auto-rotate
+                                camera-controls
+                                interaction-policy="allow-when-focused"
+                                loading="eager"
+                                ar
+                                ar-modes="webxr scene-viewer quick-look"
+                                ar-scale="auto"
+                                ar-placement="floor"
+                                style="width: 100%; height: 100%; background: #fafafa;"
+                            ></model-viewer>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Circus</h3>
+                            <p class="product-price">$34.99</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product="lantern">
+                        <div class="product-image">
+                            <model-viewer 
+                                src="assets/lanterm.glb" 
+                                alt="Lantern 3D Model"
+                                auto-rotate
+                                camera-controls
+                                interaction-policy="allow-when-focused"
+                                loading="eager"
+                                ar
+                                ar-modes="webxr scene-viewer quick-look"
+                                ar-scale="auto"
+                                ar-placement="floor"
+                                style="width: 100%; height: 100%; background: #fafafa;"
+                            ></model-viewer>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lantern</h3>
+                            <p class="product-price">$24.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">WHO ARE WE?</h2>
+                <p class="about-text">We specialize in creating and curating premium 3D models for designers, developers, and creators.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">CONTACT</h2>
+                <div class="contact-content">
+                    <p class="contact-text">Have questions or need assistance? We're here to help.</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:info@nola3d.com">info@nola3d.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                        <p><strong>Address:</strong> 123 Design Street, Creative City, CC 12345</p>
+                    </div>
+                    <p class="contact-text">For business inquiries, please reach out to our team. We typically respond within 24-48 hours.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-viewer">
+                    <div class="viewer-container" id="viewerContainer">
+                        <!-- 3D model viewer will be inserted here -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-product-name" id="modalProductName">Product Name</h2>
+                    <p class="modal-product-description" id="modalProductDescription">Product description goes here.</p>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Format:</span>
+                            <span class="spec-value">GLB</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Polygons:</span>
+                            <span class="spec-value">High Quality</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Textures:</span>
+                            <span class="spec-value">Included</span>
+                        </div>
+                    </div>
+                    <div class="modal-price-container">
+                        <span class="modal-price" id="modalPrice">$0.00</span>
+                    </div>
+                    <button class="add-to-cart-btn" id="addToCartBtn">
+                        <span>Add to Cart</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="cart-close" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price" id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025</p>
+            <div class="footer-links">
+                <a href="#legal">LEGAL</a>
+                <a href="#privacy">PRIVACY POLICY</a>
+                <a href="#terms">TERMS OF SERVICE</a>
+                <a href="#shipping">SHIPPING</a>
+                <a href="#returns">RETURNS</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
